@@ -1,0 +1,204 @@
+.donate-page {
+    font-family: "Merriweather", serif;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .donate-hero {
+    background: linear-gradient(135deg, #e1b7b7 0%, #bf7474 100%);
+    color: white;
+    text-align: center;
+    padding: 6rem 0 4rem;
+  }
+  
+  .donate-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .donate-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Content Section */
+  .donate-content {
+    padding: 4rem 0;
+  }
+  
+  .donate-message {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .donate-message h2 {
+    color: #bf7474;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .donate-message p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+  }
+  
+  /* Donation Form */
+  .donation-form {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .form-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .form-section h3 {
+    color: #bf7474;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    flex: 1;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #bf7474;
+    outline: none;
+  }
+  
+  /* Amount Options */
+  .amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .amount-option {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #e1b7b7;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #bf7474;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .amount-option:hover {
+    border-color: #bf7474;
+  }
+  
+  .amount-option.selected {
+    background: #bf7474;
+    color: white;
+    border-color: #bf7474;
+  }
+  
+  .custom-amount {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e1b7b7;
+    border-radius: 6px;
+    padding-left: 1rem;
+    flex: 1;
+    max-width: 200px;
+  }
+  
+  .custom-amount span {
+    font-weight: 600;
+    color: #bf7474;
+  }
+  
+  .custom-amount input {
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+  }
+  
+  .custom-amount input:focus {
+    outline: none;
+  }
+  
+  /* Donate Button */
+  .donate-button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    background: #bf7474;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+  }
+  
+  .donate-button:hover {
+    background: #d18b8b;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .donate-hero h1 {
+      font-size: 2.25rem;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .donation-form {
+      padding: 2rem;
+    }
+    
+    .amount-options {
+      justify-content: center;
+    }
+    
+    .custom-amount {
+      max-width: 100%;
+    }
+  }

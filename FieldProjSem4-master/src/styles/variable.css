@@ -1,0 +1,7 @@
+:root {
+    --gradient-start: #ECA5CA;
+    --gradient-end: #BF7474;
+    --button-primary: #BF7474;
+    --button-hover: #d18b8b; /* Slightly lighter */
+    --text-white: #ffffff;
+  }

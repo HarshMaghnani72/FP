@@ -1,0 +1,146 @@
+.auth-page {
+    font-family: "Merriweather", serif;
+    background: #bf7474;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .auth-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .auth-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .auth-tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e1b7b7;
+  }
+  
+  .auth-tabs button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .auth-tabs button.active {
+    color: #bf7474;
+    border-bottom: 2px solid #bf7474;
+  }
+  
+  .auth-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s;
+  }
+  
+  .auth-form input:focus {
+    border-color: #bf7474;
+    outline: none;
+  }
+  
+  .auth-button {
+    width: 100%;
+    padding: 1rem;
+    background: #bf7474;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 0.5rem;
+  }
+  
+  .auth-button:hover {
+    background: #d18b8b;
+  }
+  
+  .auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .auth-footer a {
+    color: #bf7474;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .divider {
+    margin: 1.5rem 0;
+    position: relative;
+    color: #666;
+    text-align: center;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ddd;
+  }
+  
+  .divider::before {
+    left: 0;
+  }
+  
+  .divider::after {
+    right: 0;
+  }
+  
+  .google-auth {
+    width: 100%;
+    padding: 0.75rem;
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+  }
+  
+  .google-auth:hover {
+    border-color: #bf7474;
+  }
+  
+  .google-icon {
+    font-weight: bold;
+    color: #4285F4;
+  }

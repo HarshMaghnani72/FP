@@ -1,0 +1,10 @@
+/* Transparent Navbar with white text */
+.navbar-links a {
+    color: var(--text-white);
+  }
+  
+  /* Login Button */
+  .navbar-links .login-button {
+    border: 2px solid var(--text-white);
+    
+  }
