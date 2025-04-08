@@ -24,18 +24,23 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setLoading(true);
+    setError(null);
+    
     try {
-      setLoading(true);
+      console.log('Login attempt with:', formData);
       await login(formData);
+      
       if (formData.rememberMe) {
         localStorage.setItem('rememberedEmail', formData.email);
       } else {
         localStorage.removeItem('rememberedEmail');
       }
-      navigate('/');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
+      
+      navigate('/profile');
+    } catch (error) {
+      console.error('Login error:', error);
+      setError(error.message || 'Login failed. Please check your credentials and try again.');
     } finally {
       setLoading(false);
     }

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Footer from '../components/Footer/Footer';
 import './Home.css';
 
-
 const Home = () => {
   useEffect(() => {
     // Floating shapes animation
@@ -79,43 +78,25 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials">
+      <section className="testimonials" id="testimonials">
         <div className="section-container">
-          <h2>What Our Community Says</h2>
+          <h2>Stories from Our Community</h2>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              <div className="testimonial-content">
-                <p>"ParentPlus has been a lifeline for me. The resources and support have helped me navigate single parenting with confidence."</p>
-              </div>
-              <div className="testimonial-author">
-                <img src="/images/testimonial1.jpg" alt="Sarah M." />
-                <div>
+              <div className="quote">"This community has been my rock during tough times. The resources and support helped me build a better life for my kids."</div>
+              <div className="author">
+                <div className="author-info">
                   <h4>Sarah M.</h4>
-                  <p>Single mother of two</p>
+                  <p>Mother of 2</p>
                 </div>
               </div>
             </div>
             <div className="testimonial-card">
-              <div className="testimonial-content">
-                <p>"The financial planning tools and advice have been invaluable. I've learned how to budget effectively and save for my children's future."</p>
-              </div>
-              <div className="testimonial-author">
-                <img src="/images/testimonial2.jpg" alt="Michael R." />
-                <div>
-                  <h4>Michael R.</h4>
-                  <p>Single father of one</p>
-                </div>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <p>"The community events have helped me build a support network. It's comforting to know I'm not alone in this journey."</p>
-              </div>
-              <div className="testimonial-author">
-                <img src="/images/testimonial3.jpg" alt="Jennifer L." />
-                <div>
-                  <h4>Jennifer L.</h4>
-                  <p>Single mother of three</p>
+              <div className="quote">"The financial planning workshops changed how I manage my money. I'm now more confident about our future."</div>
+              <div className="author">
+                <div className="author-info">
+                  <h4>David K.</h4>
+                  <p>Father of 1</p>
                 </div>
               </div>
             </div>
@@ -124,46 +105,54 @@ const Home = () => {
       </section>
 
       {/* Resources Section */}
-      <section className="resources">
+      <section className="resources" id="resources">
         <div className="section-container">
-          <h2>Featured Resources</h2>
+          <h2>Essential Resources</h2>
           <div className="resources-grid">
             <div className="resource-card">
-              <div className="resource-icon">
-                <img src="/images/guide-icon.png" alt="Guide" />
-              </div>
-              <h3>Single Parenting Guide</h3>
-              <p>Comprehensive guide covering all aspects of single parenting.</p>
-              <a href="/resources/guide" className="resource-link">Read More</a>
+              <div className="resource-icon">📚</div>
+              <h3>Parenting Guides</h3>
+              <ul>
+                <li>Age-specific parenting tips</li>
+                <li>Educational resources</li>
+                <li>Behavioral management</li>
+              </ul>
+              <a href="#" className="resource-link">Learn More →</a>
             </div>
             <div className="resource-card">
-              <div className="resource-icon">
-                <img src="/images/budget-icon.png" alt="Budget" />
-              </div>
-              <h3>Budgeting Tools</h3>
-              <p>Financial planning resources and calculators for single parents.</p>
-              <a href="/resources/budget" className="resource-link">Read More</a>
+              <div className="resource-icon">💰</div>
+              <h3>Financial Support</h3>
+              <ul>
+                <li>Budgeting templates</li>
+                <li>Government assistance</li>
+                <li>Scholarship programs</li>
+              </ul>
+              <a href="#" className="resource-link">Learn More →</a>
             </div>
             <div className="resource-card">
-              <div className="resource-icon">
-                <img src="/images/legal-icon.png" alt="Legal" />
-              </div>
-              <h3>Legal Resources</h3>
-              <p>Information about custody, child support, and legal rights.</p>
-              <a href="/resources/legal" className="resource-link">Read More</a>
+              <div className="resource-icon">❤️</div>
+              <h3>Emotional Support</h3>
+              <ul>
+                <li>24/7 helpline</li>
+                <li>Support groups</li>
+                <li>Professional counseling</li>
+              </ul>
+              <a href="#" className="resource-link">Learn More →</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta">
+      {/* Newsletter Section */}
+      <section className="newsletter">
         <div className="section-container">
-          <h2>Join Our Community Today</h2>
-          <p>Get access to resources, support, and connect with other single parents.</p>
-          <div className="cta-buttons">
-            <a href="/signup" className="cta-button primary">Sign Up Now</a>
-            <a href="/donate" className="cta-button secondary">Make a Donation</a>
+          <div className="newsletter-content">
+            <h2>Stay Connected</h2>
+            <p>Join our newsletter to receive updates, resources, and event invitations.</p>
+            <form className="newsletter-form">
+              <input type="email" placeholder="Enter your email" required />
+              <button type="button" className="emailbtn">Subscribe</button>
+            </form>
           </div>
         </div>
       </section>

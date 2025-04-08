@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import './FAQ.css';
 import Footer from '../components/Footer/Footer';
-import { useAuth } from '../context/AuthContext';
-import { faqAPI } from '../services/api';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [newQuestion, setNewQuestion] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const [submitted, setSubmitted] = useState(false);
 
   const faqItems = [
     {
@@ -39,20 +35,14 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const handleSubmitQuestion = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!newQuestion.trim()) return;
-
-    setIsSubmitting(true);
-    try {
-      await faqAPI.create({ question: newQuestion });
+    if (newQuestion.trim()) {
+      // Here you would typically make an API call to submit the question
+      console.log('Submitting question:', newQuestion);
       setNewQuestion('');
-      setSubmitSuccess(true);
-      setTimeout(() => setSubmitSuccess(false), 3000);
-    } catch (error) {
-      console.error('Failed to submit question:', error);
-    } finally {
-      setIsSubmitting(false);
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
     }
   };
 
@@ -84,57 +74,53 @@ const FAQ = () => {
 
           <div className="faq-list">
             {filteredFaqs.length > 0 ? (
-              filteredFaqs.map((item, index) => (
+              filteredFaqs.map((faq, index) => (
                 <div key={index} className="faq-item">
                   <div 
                     className="faq-question"
                     onClick={() => toggleQuestion(index)}
                   >
-                    <h3>{item.question}</h3>
+                    <h3>{faq.question}</h3>
                     <span className="toggle-icon">
                       {activeIndex === index ? '−' : '+'}
                     </span>
                   </div>
                   {activeIndex === index && (
                     <div className="faq-answer">
-                      <p>{item.answer}</p>
+                      {faq.answer}
                     </div>
                   )}
                 </div>
               ))
             ) : (
-              <p className="no-results">No results found for your search.</p>
+              <div className="no-results">
+                No results found for your search
+              </div>
             )}
           </div>
 
-          {isAuthenticated && (
-            <div className="ask-question-section">
-              <h3>Still have a question?</h3>
-              <form onSubmit={handleSubmitQuestion} className="question-form">
-                <textarea
-                  value={newQuestion}
-                  onChange={(e) => setNewQuestion(e.target.value)}
-                  placeholder="Type your question here..."
-                  required
-                />
-                <button 
-                  type="submit" 
-                  className="submit-btn"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit Question'}
-                </button>
-                {submitSuccess && (
-                  <div className="success-message">
-                    Your question has been submitted successfully!
-                  </div>
-                )}
-              </form>
-            </div>
-          )}
+          <div className="submit-question-section">
+            <h3>Still have a question?</h3>
+            <form onSubmit={handleSubmit} className="submit-form">
+              <textarea
+                placeholder="Type your question here..."
+                value={newQuestion}
+                onChange={(e) => setNewQuestion(e.target.value)}
+                required
+              />
+              <button type="submit" className="submit-btn">
+                Submit Question
+              </button>
+            </form>
+            {submitted && (
+              <div className="success-message">
+                Thank you! Your question has been submitted.
+              </div>
+            )}
+          </div>
 
           <div className="feedback-section">
-            <h3>Did you find what you were looking for?</h3>
+            <h3>Was this helpful?</h3>
             <div className="feedback-buttons">
               <button className="feedback-btn yes">Yes</button>
               <button className="feedback-btn no">No</button>

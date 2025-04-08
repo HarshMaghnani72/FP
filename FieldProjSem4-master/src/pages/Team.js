@@ -6,30 +6,30 @@ const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'Founder & CEO',
-      bio: 'With over 15 years of experience in social work and community development, Sarah founded ParentPlus to create a supportive network for single parents.',
+      name: 'Rushil Rohra',
+      role: 'Team Leader',
+      bio: 'Leading the development of ParentPlus with a vision to support single parents.',
       image: '/images/team1.jpg'
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'Program Director',
-      bio: 'Michael brings extensive experience in program management and community outreach, ensuring our initiatives reach those who need them most.',
+      name: 'Harshita Bhatia',
+      role: 'Backend Engineer',
+      bio: 'Building robust backend systems to power the ParentPlus platform.',
       image: '/images/team2.jpg'
     },
     {
       id: 3,
-      name: 'Lisa Rodriguez',
-      role: 'Community Manager',
-      bio: 'Lisa specializes in building and nurturing communities, creating safe spaces for single parents to connect and support each other.',
+      name: 'Dolly Mangwani',
+      role: 'Backend Engineer',
+      bio: 'Developing secure and efficient backend services for ParentPlus.',
       image: '/images/team3.jpg'
     },
     {
       id: 4,
-      name: 'David Wilson',
-      role: 'Resource Coordinator',
-      bio: 'David works tirelessly to connect single parents with essential resources and support services in their communities.',
+      name: 'Anish Udasi',
+      role: 'Frontend Engineer',
+      bio: 'Creating intuitive and responsive user interfaces for ParentPlus.',
       image: '/images/team4.jpg'
     }
   ];

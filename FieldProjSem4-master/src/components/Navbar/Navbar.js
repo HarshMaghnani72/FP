@@ -59,6 +59,16 @@ const Navbar = () => {
                     <Link to="/profile" onClick={() => setIsProfileOpen(false)}>
                       My Profile
                     </Link>
+                    {user?.role === 'admin' && (
+                      <>
+                        <Link to="/admin" onClick={() => setIsProfileOpen(false)}>
+                          Admin Dashboard
+                        </Link>
+                        <Link to="/admin/faq" onClick={() => setIsProfileOpen(false)}>
+                          Manage FAQs
+                        </Link>
+                      </>
+                    )}
                     <button onClick={handleLogout}>
                       Logout
                     </button>

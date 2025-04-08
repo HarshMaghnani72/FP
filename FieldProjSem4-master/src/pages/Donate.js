@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { donationAPI } from '../services/api';
 import './Donate.css';
-import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 const Donate = () => {
@@ -126,8 +125,6 @@ const Donate = () => {
 
   return (
     <div className="donate-page">
-      <Navbar />
-      
       <section className="donate-hero">
         <div className="container">
           <h1>Support Single Parents</h1>

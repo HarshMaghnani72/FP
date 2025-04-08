@@ -8,28 +8,28 @@ const TeamSection = () => {
       name: "Rushil Rohra", 
       role: "Team Leader", 
       bio: "Leading the development of ParentPlus with a vision to support single parents.",
-      image: "images/team1.jpg" 
+      image: "/images/team1.jpg" 
     },
     { 
       id: 2, 
       name: "Harshita Bhatia", 
       role: "Backend Engineer", 
       bio: "Building robust backend systems to power the ParentPlus platform.",
-      image: "images/team2.jpg" 
+      image: "/images/team2.jpg" 
     },
     { 
       id: 3, 
       name: "Dolly Mangwani", 
       role: "Backend Engineer", 
       bio: "Developing secure and efficient backend services for ParentPlus.",
-      image: "images/team3.jpg" 
+      image: "/images/team3.jpg" 
     },
     { 
       id: 4, 
       name: "Anish Udasi", 
       role: "Frontend Engineer", 
       bio: "Creating intuitive and responsive user interfaces for ParentPlus.",
-      image: "images/team4.jpg" 
+      image: "/images/team4.jpg" 
     }
   ];
 
@@ -45,8 +45,9 @@ const TeamSection = () => {
                   src={member.image} 
                   alt={member.name} 
                   onError={(e) => {
+                    console.error(`Failed to load image for ${member.name}:`, e);
                     e.target.onerror = null; 
-                    e.target.src = "images/placeholder.jpg"
+                    e.target.src = "/images/placeholder.jpg"
                   }}
                 />
               </div>

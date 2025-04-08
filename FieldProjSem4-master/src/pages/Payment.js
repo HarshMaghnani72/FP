@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { donationAPI } from '../services/api';
 import './Payment.css';
-import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 const Payment = () => {
@@ -101,7 +100,6 @@ const Payment = () => {
   if (!donation) {
     return (
       <div className="payment-page">
-        <Navbar />
         <div className="container">
           <div className="loading-message">Loading donation details...</div>
         </div>
@@ -112,8 +110,6 @@ const Payment = () => {
 
   return (
     <div className="payment-page">
-      <Navbar />
-      
       <section className="payment-hero">
         <div className="container">
           <h1>Complete Your Donation</h1>

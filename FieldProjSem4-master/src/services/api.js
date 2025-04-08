@@ -1,33 +1,71 @@
 import axios from 'axios';
 
+// Use a hardcoded URL for now to ensure it works
 const API_URL = 'http://localhost:5000/api';
+
+console.log('API Service initialized with URL:', API_URL);
 
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  withCredentials: false // Change to false to avoid CORS issues
 });
 
 // Add token to requests if it exists
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
+    console.log('API Request Interceptor - Token exists:', !!token);
     if (token) {
+      console.log('Adding Authorization header with token');
       config.headers.Authorization = `Bearer ${token}`;
     }
+    console.log('Request config:', {
+      url: config.url,
+      method: config.method,
+      headers: config.headers
+    });
     return config;
   },
   (error) => {
+    console.error('Request interceptor error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// Add response interceptor for debugging
+api.interceptors.response.use(
+  (response) => {
+    console.log('API Response:', {
+      url: response.config.url,
+      status: response.status,
+      data: response.data
+    });
+    return response;
+  },
+  (error) => {
+    console.error('API Error:', {
+      url: error.config?.url,
+      status: error.response?.status,
+      data: error.response?.data
+    });
     return Promise.reject(error);
   }
 );
 
 // Auth API
 export const authAPI = {
-  register: (userData) => api.post('/auth/register', userData),
-  login: (credentials) => api.post('/auth/login', credentials),
+  register: (userData) => {
+    console.log('Registering user with data:', userData);
+    return api.post('/auth/register', userData);
+  },
+  login: (credentials) => {
+    console.log('Logging in with credentials:', credentials);
+    return api.post('/auth/login', credentials);
+  },
   getCurrentUser: () => api.get('/auth/me'),
   logout: () => api.post('/auth/logout')
 };
@@ -85,8 +123,11 @@ export const faqAPI = {
   getByCategory: (category) => api.get(`/faq/category/${category}`),
   getOne: (id) => api.get(`/faq/${id}`),
   create: (faqData) => api.post('/faq', faqData),
+  submit: (question) => api.post('/faq/submit', { question }),
   update: (id, data) => api.patch(`/faq/${id}`, data),
-  delete: (id) => api.delete(`/faq/${id}`)
+  delete: (id) => api.delete(`/faq/${id}`),
+  getAllAdmin: () => api.get('/faq/admin/all'),
+  updateFAQ: (id, data) => api.put(`/faq/admin/${id}`, data)
 };
 
 export default api; 

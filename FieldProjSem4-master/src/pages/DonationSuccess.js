@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './DonationSuccess.css';
-import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 const DonationSuccess = () => {
@@ -18,7 +17,6 @@ const DonationSuccess = () => {
   if (!donationId) {
     return (
       <div className="donation-success-page">
-        <Navbar />
         <div className="container">
           <div className="error-message">
             <h2>Invalid Donation</h2>
@@ -33,8 +31,6 @@ const DonationSuccess = () => {
 
   return (
     <div className="donation-success-page">
-      <Navbar />
-      
       <section className="success-hero">
         <div className="container">
           <div className="success-icon">

@@ -8,12 +8,19 @@ const faqSchema = new mongoose.Schema({
   },
   answer: {
     type: String,
-    required: true
+    required: false,
+    default: ''
   },
   category: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    default: 'general'
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'answered', 'rejected'],
+    default: 'pending'
   },
   order: {
     type: Number,

@@ -16,6 +16,8 @@ import BlogPost from './pages/BlogPost';
 import AddBlog from './pages/AddBlog';
 import Contact from './pages/Contact';
 import Profile from './pages/Profile';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminFAQ from './pages/AdminFAQ';
 import './App.css';
 
 // Protected Route component
@@ -72,6 +74,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute requireAdmin>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/faq" 
+              element={
+                <ProtectedRoute requireAdmin>
+                  <AdminFAQ />
                 </ProtectedRoute>
               } 
             />

@@ -50,8 +50,11 @@ const About = () => {
             <div className="story-image">
               <div className="image-frame">
                 <div className="image-placeholder">
-                  {/* Replace with actual image */}
-                  <span><img src='/images/train.jpg' className='img'></img></span>
+                  <img 
+                    src="/images/train.jpg" 
+                    alt="Children playing near railway tracks" 
+                    className="img"
+                  />
                 </div>
               </div>
             </div>
