@@ -10,19 +10,20 @@ router.post('/register', async (req, res) => {
   try {
     console.log('Registration request received:', { 
       email: req.body.email,
-      name: req.body.name 
+      name: req.body.name,
+      password: req.body.password ? 'Password provided' : 'No password'
     });
     
     const { name, email, password } = req.body;
     
     // Validate input
     if (!name || !email || !password) {
-      console.log('Missing required fields');
+      console.log('Missing required fields:', { name: !!name, email: !!email, password: !!password });
       return res.status(400).json({ message: 'All fields are required' });
     }
 
     if (password.length < 6) {
-      console.log('Password too short');
+      console.log('Password too short:', password.length);
       return res.status(400).json({ message: 'Password must be at least 6 characters long' });
     }
 

@@ -53,32 +53,9 @@ const Signup = () => {
       const { confirmPassword, agreeToTerms, ...registerData } = formData;
       console.log('Sending registration data:', registerData);
       
-      // Add a direct fetch call to test the API
-      try {
-        const response = await fetch('http://localhost:5000/api/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(registerData),
-          credentials: 'omit' // Change to omit to avoid CORS issues
-        });
-        
-        const data = await response.json();
-        console.log('Direct fetch response:', data);
-        
-        if (!response.ok) {
-          throw new Error(data.message || 'Registration failed');
-        }
-        
-        // If direct fetch works, use the context
-        const user = await register(registerData);
-        console.log('Registration successful:', user);
-        navigate('/profile');
-      } catch (fetchError) {
-        console.error('Direct fetch error:', fetchError);
-        throw fetchError;
-      }
+      const user = await register(registerData);
+      console.log('Registration successful:', user);
+      navigate('/profile');
     } catch (err) {
       console.error('Registration error details:', err);
       setError(err.message || 'Registration failed. Please try again.');

@@ -28,8 +28,13 @@ const Login = () => {
     setError(null);
     
     try {
-      console.log('Login attempt with:', formData);
-      await login(formData);
+      // Only send email and password to the backend
+      const loginData = {
+        email: formData.email,
+        password: formData.password
+      };
+      console.log('Login attempt with:', loginData);
+      await login(loginData);
       
       if (formData.rememberMe) {
         localStorage.setItem('rememberedEmail', formData.email);

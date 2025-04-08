@@ -3,21 +3,23 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const dotenv = require('dotenv');
 require('dotenv').config();
 
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: '*', // Allow all origins for testing
-  credentials: false, // Change to false to avoid CORS issues
+  origin: ['http://localhost:5001', 'http://127.0.0.1:5001'],
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Add request logging middleware
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`, req.body);
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  console.log('Request headers:', req.headers);
   next();
 });
 
@@ -26,8 +28,19 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/field-project')
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => {
+    console.log('Connected to MongoDB successfully');
+    // Start server
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+      console.log(`MongoDB URI: ${process.env.MONGODB_URI}`);
+    });
+  })
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
+  });
 
 // Routes
 const authRoutes = require('./routes/auth.routes');
@@ -63,9 +76,4 @@ if (!fs.existsSync(uploadsDir)) {
 }
 if (!fs.existsSync(teamDir)) {
   fs.mkdirSync(teamDir);
-}
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-}); 
+} 
