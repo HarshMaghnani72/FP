@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "question": "What is ParentPlus?",
+    "answer": "ParentPlus is a comprehensive platform designed to help parents manage their children's education, activities, and development.",
+    "category": "general",
+    "status": "answered",
+    "isActive": true,
+    "createdAt": "2024-04-15T20:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "question": "How do I track my child's progress?",
+    "answer": "You can track your child's progress through the dashboard. It shows academic performance, attendance records, and upcoming events.",
+    "category": "features",
+    "status": "answered",
+    "isActive": true,
+    "createdAt": "2024-04-15T20:00:00.000Z"
+  }
+] 

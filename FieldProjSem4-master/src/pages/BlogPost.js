@@ -174,11 +174,6 @@ const BlogPost = () => {
             <button onClick={() => navigate('/blogs')} className="back-button">
               Back to Blogs
             </button>
-            <div className="share-buttons">
-              <button className="share-button facebook">Share on Facebook</button>
-              <button className="share-button twitter">Share on Twitter</button>
-              <button className="share-button whatsapp">Share on WhatsApp</button>
-            </div>
           </div>
         </div>
       </article>

@@ -19,7 +19,6 @@
   .blogs-hero p {
     font-size: 1.25rem;
     opacity: 0.9;
-    margin-bottom: 2rem;
   }
   
   .add-blog-button {
@@ -116,8 +115,6 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
   }
   
   .read-more:hover {

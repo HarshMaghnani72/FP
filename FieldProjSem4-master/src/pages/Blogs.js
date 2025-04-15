@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './Blogs.css';
 import Footer from '../components/Footer/Footer';
 
 const Blogs = () => {
-  const { user } = useAuth();
-  const isAdmin = user?.role === 'admin';
-
+  const navigate = useNavigate();
+  
   const blogPosts = [
     {
       id: 1,
@@ -18,7 +16,7 @@ const Blogs = () => {
     {
       id: 2,
       title: "The Strength of Single Parenting",
-      content: "Single parenting is a journey filled with challenges, resilience, and unconditional love. Juggling responsibilities alone—whether emotional, financial, or daily tasks—can be overwhelming, yet it shapes individuals into strong, resourceful caregivers. Despite the struggles, single parents create a nurturing environment, proving that love and dedication matter more than the number of parents in a household. Their ability to balance work, home, and personal growth is nothing short of inspiring. ",
+      content: "Single parenting is a journey filled with challenges, resilience, and unconditional love. Juggling responsibilities alone—whether emotional, financial, or daily tasks—can be overwhelming, yet it shapes individuals into strong, resourceful caregivers. Despite the struggles, single parents create a nurturing environment, proving that love and dedication matter more than the number of parents in a household. Their ability to balance work, home, and personal growth is nothing short of inspiring.",
       image: "/images/strength.jpg"
     },
     {
@@ -47,17 +45,16 @@ const Blogs = () => {
     }
   ];
 
+  const handleReadMore = (blogId) => {
+    navigate(`/blogs/${blogId}`);
+  };
+
   return (
     <div className="blogs-page">
       <section className="blogs-hero">
         <div className="container">
           <h1>Parenting Resources & Blogs</h1>
           <p>Practical advice and support for single parents</p>
-          {isAdmin && (
-            <Link to="/add-blog" className="add-blog-button">
-              Add New Blog
-            </Link>
-          )}
         </div>
       </section>
 
@@ -72,9 +69,12 @@ const Blogs = () => {
                 <div className="blog-details">
                   <h2>{post.title}</h2>
                   <p>{post.content}</p>
-                  <Link to={`/blogs/${post.id}`} className="read-more">
+                  <button 
+                    className="read-more"
+                    onClick={() => handleReadMore(post.id)}
+                  >
                     Read More
-                  </Link>
+                  </button>
                 </div>
               </article>
             ))}

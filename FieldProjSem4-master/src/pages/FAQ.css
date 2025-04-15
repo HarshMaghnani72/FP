@@ -1,272 +1,259 @@
 .faq-page {
-    font-family: "Merriweather", serif;
-    color: #333;
-  }
-  
-  /* Hero Section */
-  .faq-hero {
-    background: linear-gradient(135deg, #e1b7b7 0%, #bf7474 100%);
-    color: white;
-    text-align: center;
-    padding: 6rem 0 4rem;
-  }
-  
+  font-family: "Merriweather", serif;
+  color: #333;
+}
+
+/* Hero Section */
+.faq-hero {
+  background: linear-gradient(135deg, #e1b7b7 0%, #bf7474 100%);
+  color: white;
+  text-align: center;
+  padding: 6rem 0 4rem;
+}
+
+.faq-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.faq-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  margin: 3rem 0;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e1b7b7;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #bf7474;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(191, 116, 116, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+/* FAQ List */
+.faq-list {
+  margin-bottom: 4rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e1b7b7;
+  padding: 1.5rem 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faq-question:hover {
+  color: #bf7474;
+}
+
+.faq-question h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 30px;
+  text-align: center;
+}
+
+.faq-answer {
+  padding-top: 1rem;
+  color: #555;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* Submit Section */
+.submit-section {
+  margin: 4rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid #e1b7b7;
+}
+
+.submit-section h3 {
+  color: #bf7474;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.submit-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1b7b7;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-form textarea:focus {
+  border-color: #bf7474;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(191, 116, 116, 0.2);
+}
+
+.submit-btn {
+  padding: 0.75rem 2rem;
+  background: #bf7474;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: center;
+}
+
+.submit-btn:hover {
+  background: #d18b8b;
+}
+
+.success-message {
+  text-align: center;
+  color: #28a745;
+  margin-top: 1rem;
+}
+
+/* Feedback Section */
+.feedback-section {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid #e1b7b7;
+}
+
+.feedback-section h3 {
+  color: #bf7474;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.feedback-btn {
+  padding: 0.75rem 2rem;
+  border: 2px solid;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.feedback-btn.yes {
+  background: #bf7474;
+  color: white;
+  border-color: #bf7474;
+}
+
+.feedback-btn.yes:hover {
+  background: #d18b8b;
+  border-color: #d18b8b;
+}
+
+.feedback-btn.no {
+  background: white;
+  color: #bf7474;
+  border-color: #bf7474;
+}
+
+.feedback-btn.no:hover {
+  background: #f8f9fa;
+}
+
+/* Error Message */
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: #f8d7da;
+  border-radius: 4px;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  padding: 2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .faq-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .faq-hero p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  /* Search Box */
-  .search-box {
-    position: relative;
-    margin: 3rem 0;
-  }
-  
-  .search-box input {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid #e1b7b7;
-    border-radius: 30px;
-    font-size: 1rem;
-    transition: all 0.3s;
-  }
-  
-  .search-box input:focus {
-    border-color: #bf7474;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(191, 116, 116, 0.2);
-  }
-  
-  .search-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-  }
-  
-  /* FAQ List */
-  .faq-list {
-    margin-bottom: 4rem;
-  }
-  
-  .faq-item {
-    border-bottom: 1px solid #e1b7b7;
-    padding: 1.5rem 0;
-  }
-  
-  .faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .faq-question:hover {
-    color: #bf7474;
+    font-size: 2.25rem;
   }
   
   .faq-question h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0;
-    flex: 1;
-  }
-  
-  .toggle-icon {
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: 30px;
-    text-align: center;
-  }
-  
-  .faq-answer {
-    padding-top: 1rem;
-    color: #555;
-    line-height: 1.6;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .no-results {
-    text-align: center;
-    color: #666;
-    font-style: italic;
-    padding: 2rem 0;
-  }
-  
-  /* Loading and Error Messages */
-  .loading-message {
-    text-align: center;
-    padding: 2rem 0;
-    color: #666;
-    font-style: italic;
-  }
-  
-  .error-message {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
-  
-  /* Feedback Section */
-  .feedback-section {
-    text-align: center;
-    margin: 4rem 0;
-    padding: 2rem 0;
-    border-top: 1px solid #e1b7b7;
-  }
-  
-  .feedback-section h3 {
-    color: #bf7474;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
   }
   
   .feedback-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
   }
   
   .feedback-btn {
-    padding: 0.75rem 2rem;
-    border: 2px solid;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .feedback-btn.yes {
-    background: #bf7474;
-    color: white;
-    border-color: #bf7474;
-  }
-  
-  .feedback-btn.yes:hover {
-    background: #d18b8b;
-    border-color: #d18b8b;
-  }
-  
-  .feedback-btn.no {
-    background: white;
-    color: #bf7474;
-    border-color: #bf7474;
-  }
-  
-  .feedback-btn.no:hover {
-    background: #f8f9fa;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .faq-hero h1 {
-      font-size: 2.25rem;
-    }
-    
-    .faq-question h3 {
-      font-size: 1.1rem;
-    }
-    
-    .feedback-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .feedback-btn {
-      width: 100%;
-      max-width: 200px;
-    }
-  }
-
-  .submit-question-section {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .submit-question-section h3 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .submit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .submit-form textarea {
     width: 100%;
-    min-height: 120px;
-    padding: 1rem;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1rem;
-    resize: vertical;
-    transition: border-color 0.3s ease;
+    max-width: 200px;
   }
-
-  .submit-form textarea:focus {
-    outline: none;
-    border-color: #4a90e2;
-  }
-
-  .submit-btn {
-    align-self: flex-end;
-    padding: 0.8rem 2rem;
-    background: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .submit-btn:hover {
-    background: #357abd;
-  }
-
-  .success-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #d4edda;
-    color: #155724;
-    border-radius: 6px;
-    text-align: center;
-    animation: fadeIn 0.3s ease;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+}

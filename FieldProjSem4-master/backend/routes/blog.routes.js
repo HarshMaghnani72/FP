@@ -6,7 +6,7 @@ const { auth, adminAuth } = require('../middleware/auth.middleware');
 // Get all published blogs
 router.get('/', async (req, res) => {
   try {
-    const blogs = await Blog.find({ status: 'published' })
+    const blogs = await Blog.find()
       .populate('author', 'name')
       .sort({ createdAt: -1 });
     res.json(blogs);

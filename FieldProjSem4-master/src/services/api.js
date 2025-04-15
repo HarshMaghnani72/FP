@@ -125,9 +125,7 @@ export const faqAPI = {
   create: (faqData) => api.post('/faq', faqData),
   submit: (question) => api.post('/faq/submit', { question }),
   update: (id, data) => api.patch(`/faq/${id}`, data),
-  delete: (id) => api.delete(`/faq/${id}`),
-  getAllAdmin: () => api.get('/faq/admin/all'),
-  updateFAQ: (id, data) => api.put(`/faq/admin/${id}`, data)
+  delete: (id) => api.delete(`/faq/${id}`)
 };
 
 export default api; 

@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { faqAPI } from '../services/api';
 import './AdminDashboard.css';
 import Footer from '../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -83,10 +84,10 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <section className="admin-hero">
+      <section className="dashboard-header">
         <div className="container">
           <h1>Admin Dashboard</h1>
-          <p>Manage FAQ questions and answers</p>
+          <p>Welcome to your admin dashboard. Manage your website content and user interactions.</p>
         </div>
       </section>
 
@@ -172,6 +173,23 @@ const AdminDashboard = () => {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="admin-features">
+        <div className="container">
+          <h2>Admin Features</h2>
+          <div className="dashboard-grid">
+            <Link to="/admin/faq" className="dashboard-card">
+              <h3>Manage FAQs</h3>
+              <p>View and manage frequently asked questions</p>
+            </Link>
+            <Link to="/admin/contact-messages" className="dashboard-card">
+              <h3>Contact Messages</h3>
+              <p>View and respond to user messages</p>
+            </Link>
+            {/* Add more admin features here */}
+          </div>
         </div>
       </section>
 
