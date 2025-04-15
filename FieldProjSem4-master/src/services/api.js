@@ -64,7 +64,7 @@ export const authAPI = {
   },
   login: (credentials) => {
     console.log('Logging in with credentials:', credentials);
-    return api.post('/auth/login', credentials);
+    return api.post('http://localhost:5001/api/auth/login', credentials);
   },
   getCurrentUser: () => api.get('/auth/me'),
   logout: () => api.post('/auth/logout')
@@ -118,14 +118,14 @@ export const teamAPI = {
 
 // FAQ API
 export const faqAPI = {
-  getAll: () => api.get('/faq'),
-  getAllAdmin: () => api.get('/faq/all'),
-  getByCategory: (category) => api.get(`/faq/category/${category}`),
-  getOne: (id) => api.get(`/faq/${id}`),
-  create: (faqData) => api.post('/faq', faqData),
-  submit: (question) => api.post('/faq/submit', { question }),
-  update: (id, data) => api.patch(`/faq/${id}`, data),
-  delete: (id) => api.delete(`/faq/${id}`)
+  getAll: () => api.get('http://localhost:5001/api/faq'),
+  getAllAdmin: () => api.get('http://localhost:5001/api/faq'),
+  getByCategory: (category) => api.get(`http://localhost:5001/api/faq/category/${category}`),
+  getOne: (id) => api.get(`http://localhost:5001/api/faq/${id}`),
+  create: (faqData) => api.post('http://localhost:5001/api/faq', faqData),
+  submit: (question) => api.post('http://localhost:5001/api/faq/submit', { question }),
+  update: (id, data) => api.patch(`http://localhost:5001/api/faq/${id}`, data),
+  delete: (id) => api.delete(`http://localhost:5001/api/faq/${id}`)
 };
 
 export default api; 

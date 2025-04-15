@@ -76,11 +76,13 @@ const FAQ = () => {
     }
   };
 
-  const filteredFaqs = faqs.filter(faq => 
-    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (faq.answer && faq.answer.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
+  const filteredFaqs = faqs.filter(faq => {
+    const question = typeof faq.question === 'string' ? faq.question.toLowerCase() : (faq.question?.question || '').toLowerCase();
+    const answer = faq.answer ? faq.answer.toLowerCase() : '';
+    
+    return question.includes(searchTerm.toLowerCase()) || answer.includes(searchTerm.toLowerCase());
+  });
+  
   return (
     <div className="faq-page">
       <section className="faq-hero">
@@ -108,30 +110,34 @@ const FAQ = () => {
             <div className="error">{error}</div>
           ) : (
             <>
-              <div className="faq-list">
-                {filteredFaqs.length > 0 ? (
-                  filteredFaqs.map((faq, index) => (
-                    <div key={faq._id} className="faq-item">
-                      <div
-                        className="faq-question"
-                        onClick={() => toggleQuestion(index)}
-                      >
-                        <h3>{faq.question}</h3>
-                        <span className="toggle-icon">
-                          {activeQuestion === index ? '−' : '+'}
-                        </span>
-                      </div>
-                      {activeQuestion === index && (
-                        <div className="faq-answer">
-                          <p>{faq.answer || 'No answer available yet.'}</p>
-                        </div>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <p className="no-results">No results found for your search.</p>
-                )}
-              </div>
+<div className="faq-list">
+  {filteredFaqs.length > 0 ? (
+    filteredFaqs.map((faq, index) => (
+      <div key={faq._id} className="faq-item">
+        <div
+          className="faq-question"
+          onClick={() => toggleQuestion(index)}
+        >
+          <h3>
+            {typeof faq.question === 'object' && faq.question.question
+              ? faq.question.question
+              : faq.question}
+          </h3>
+          <span className="toggle-icon">
+            {activeQuestion === index ? '−' : '+'}
+          </span>
+        </div>
+        {activeQuestion === index && (
+          <div className="faq-answer">
+            <p>{faq.answer || 'No answer available yet.'}</p>
+          </div>
+        )}
+      </div>
+    ))
+  ) : (
+    <p className="no-results">No results found for your search.</p>
+  )}
+</div>
 
               <div className="submit-section">
                 <h3>Still have a question?</h3>
